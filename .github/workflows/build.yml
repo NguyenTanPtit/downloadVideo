@@ -40,13 +40,7 @@ jobs:
 
       # 5. Dùng jpackage tạo file EXE
       - name: Build EXE with JPackage
-        run: |
-          jpackage --input . ^
-            --name "ToolTaiVideo" ^
-            --main-jar app.jar ^
-            --main-class VideoDownloaderGUI ^
-            --type app-image ^
-            --win-console
+        run: jpackage --input . --name "ToolTaiVideo" --main-jar app.jar --main-class VideoDownloaderGUI --type app-image --win-console
 
       # 6. Nén kết quả
       - name: Zip Result
