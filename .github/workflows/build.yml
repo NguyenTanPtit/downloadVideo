@@ -36,7 +36,7 @@ jobs:
       - name: Build JAR
         run: |
           echo Main-Class: VideoDownloaderGUI > manifest.txt
-          jar cmf manifest.txt app.jar -C out .
+          jar cfe app.jar VideoDownloaderGUI -C out .
 
       # 5. Dùng jpackage tạo file EXE
       - name: Build EXE with JPackage
