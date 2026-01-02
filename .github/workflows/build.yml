@@ -23,7 +23,7 @@ jobs:
       - name: Compile Java
         run: |
           mkdir out
-          javac -d out src/main/java/BatchVideoDownloader.java
+          javac -d out src/main/java/VideoDownloaderGUI.java
 
       # 3. Copy file ffmpeg.exe (Win) vào thư mục build
       # LƯU Ý: Bạn phải đảm bảo file ffmpeg.exe đã nằm trong src/main/resources trên Git
@@ -35,7 +35,7 @@ jobs:
       # 4. Tạo file JAR
       - name: Build JAR
         run: |
-          echo Main-Class: BatchVideoDownloader > manifest.txt
+          echo Main-Class: VideoDownloaderGUI > manifest.txt
           jar cmf manifest.txt app.jar -C out .
 
       # 5. Dùng jpackage tạo file EXE
@@ -44,7 +44,7 @@ jobs:
           jpackage --input . ^
             --name "ToolTaiVideo" ^
             --main-jar app.jar ^
-            --main-class BatchVideoDownloader ^
+            --main-class VideoDownloaderGUI ^
             --type app-image ^
             --win-console
 
