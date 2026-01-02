@@ -23,7 +23,7 @@ jobs:
       - name: Compile Java
         run: |
           mkdir out
-          javac -d out src/main/java/VideoDownloaderGUI.java
+          javac -d out -encoding UTF-8 src/main/java/VideoDownloaderGUI.java
 
       # 3. Copy file ffmpeg.exe (Win) vào thư mục build
       # LƯU Ý: Bạn phải đảm bảo file ffmpeg.exe đã nằm trong src/main/resources trên Git
