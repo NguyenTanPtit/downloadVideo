@@ -29,7 +29,6 @@ jobs:
       # LƯU Ý: Bạn phải đảm bảo file ffmpeg.exe đã nằm trong src/main/resources trên Git
       - name: Copy Resources
         run: |
-          mkdir out\resources
           copy src\main\resources\ffmpeg.exe out\ffmpeg.exe
 
       # 4. Tạo file JAR
@@ -37,6 +36,11 @@ jobs:
         run: |
           echo Main-Class: VideoDownloaderGUI > manifest.txt
           jar cfe app.jar VideoDownloaderGUI -C out .
+
+      - name: Prepare Staging
+        run: |
+          mkdir staging
+          copy app.jar staging\app.jar
 
       # 5. Dùng jpackage tạo file EXE
       - name: Build EXE with JPackage
